@@ -1,0 +1,122 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003366;
+  border-bottom: 2px solid #002244;
+  padding: 0 1rem;
+  height: 80px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+}
+
+/* โลโก้ */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;          /* ลบ padding ออก */
+  border-radius: 0;    /* ไม่ต้องมีกรอบ */
+  background: none;    /* ไม่มีพื้นหลัง */
+}
+
+.logoWrapper img {
+  height: 64px; /* ขยายโลโก้ใหญ่ขึ้น */
+  width: auto;
+  display: block;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.thaiName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.engName {
+  font-size: 0.9rem;
+  color: #dcdcdc;
+}
+
+/* เมนู */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: #ffcc00;
+}
+
+/* ========================================
+   Responsive Design: Tablet & Mobile
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .thaiName {
+    font-size: 1rem;
+  }
+
+  .engName {
+    font-size: 0.8rem;
+  }
+
+  .menu {
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    height: auto;
+  }
+
+  .logoContainer {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .menu a {
+    font-size: 0.95rem;
+    width: 100%;
+    padding: 0.4rem 0;
+  }
+}

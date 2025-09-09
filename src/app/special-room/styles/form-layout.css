@@ -1,0 +1,197 @@
+/* ================= GOV STYLE ================= */
+.gov-form {
+  --bg: #f1f4f8;
+  --card: #ffffff;
+  --ink: #0f172a;          /* ข้อความเข้ม */
+  --muted: #475569;        /* ข้อความรอง */
+  --brand: #0b3d91;        /* กรมท่า */
+  --brand-600: #083578;
+  --border: #c7d1e0;       /* เส้นกรอบแบบราชการ */
+  --danger: #b42318;
+  --success: #0f5132;
+  --radius: 6px;           /* มุมเหลี่ยมเล็ก */
+  --radius-sm: 4px;
+  --shadow: none;          /* ไม่มีเงา */
+  --focus: #8db3ff;        /* วงโฟกัสฟ้าอ่อน */
+  --control-h: 40px;
+  --control-px: 10px;
+}
+
+.gov-form * { box-sizing: border-box; }
+
+.gov-form.container {
+  max-width: 980px;
+  margin: 24px auto 72px;
+  padding: 0 16px;
+  color: var(--ink);
+  background: var(--bg);
+  font: 15px/1.55 'Sarabun', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* ===== Title แบบราชการ */
+.gov-form .page-title{
+  margin: 6px 0 14px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  padding-left: 12px;
+  border-left: 6px solid var(--brand);
+}
+
+/* ===== กล่อง/fieldset แบบราชการ */
+.gov-form .card{
+  background: var(--card);
+  border: 1.2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+
+.gov-form .fieldset{
+  border: 1.2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: #fff;
+}
+
+.gov-form .legend{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  border-bottom: 2px solid var(--brand);
+}
+.gov-form .legend-no{
+  color: var(--brand);
+  font-weight: 800;
+}
+
+/* ===== โครงฟอร์ม */
+.gov-form .form {}
+.gov-form .form.is-error { animation: jiggle .18s ease-in-out 0s 2; }
+@keyframes jiggle { 0%{transform:translateX(0)} 25%{transform:translateX(-5px)} 50%{transform:translateX(5px)} 100%{transform:translateX(0)} }
+
+.gov-form .form-group{ display:flex; flex-direction:column; gap:6px; }
+.gov-form .form-label{ font-weight:600; color: var(--ink); }
+.gov-form .req{ color: var(--danger); margin-left: 4px; }
+
+/* ===== Controls: เหลี่ยม ไม่มีเงา */
+.gov-form .form-control{
+  width: 100%;
+  height: var(--control-h);
+  border: 1.2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--control-px);
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+}
+.gov-form .form-control::placeholder{ color: #94a3b8; }
+.gov-form .form-control:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+.gov-form .select{
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #6b7280 50%),
+    linear-gradient(135deg, #6b7280 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 3px),
+                       calc(100% - 15px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.gov-form .textarea{
+  min-height: 120px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  resize: vertical;
+}
+
+.gov-form .input-small{ max-width: 260px; }
+
+/* ===== Radio / Checkbox: เรียบ ชัด */
+.gov-form .radio, .gov-form .check{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  color: var(--ink);
+}
+.gov-form .radio input, .gov-form .check input{ width: 18px; height: 18px; }
+
+/* ===== Toast เรียบ */
+.gov-form .toast{
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1.2px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+}
+.gov-form .toast-success{ border-color:#1a7f51; color: var(--success); }
+.gov-form .toast-error{ border-color:#d92d20; color: var(--danger); }
+
+/* ===== ปุ่มแบบราชการ (เหลี่ยม สีกรม) */
+.gov-form .button-row{ display:flex; gap:10px; }
+.gov-form .btn{
+  display: inline-flex; align-items:center; justify-content:center;
+  height: 40px; padding: 0 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  background: #fff;
+  color: var(--ink);
+}
+.gov-form .btn-primary{
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.gov-form .btn-primary:hover{ background: var(--brand-600); }
+.gov-form .btn-secondary{
+  border-color: var(--border);
+}
+.gov-form .btn-secondary:hover{ background:#f3f4f6 }
+
+/* ===== กล่องเงื่อนไข */
+.gov-form .scroll-box{
+  border: 1.2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  max-height: 200px;
+  overflow: auto;
+  background: #f7f9fc;
+}
+.gov-form .text-danger{ color: var(--danger); }
+
+/* ===== Utilities / Grid ===== */
+.gov-form .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); }
+.gov-form .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); }
+.gov-form .align-center{ align-items:center; }
+.gov-form .gap-8{ gap: 8px; }
+.gov-form .gap-12{ gap: 12px; }
+.gov-form .m-0{ margin: 0; }
+.gov-form .mt-12{ margin-top: 12px; }
+.gov-form .mt-16{ margin-top: 16px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px){
+  .gov-form .grid-3{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .gov-form .grid-3, .gov-form .grid-2{ grid-template-columns: 1fr; }
+  .gov-form .button-row{ flex-direction: column; }
+  .gov-form .input-small{ max-width: 100%; }
+}

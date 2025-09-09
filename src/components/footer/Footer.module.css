@@ -1,0 +1,131 @@
+.footer {
+  background: linear-gradient(90deg, #003366);
+  color: #fff;
+  font-family: 'Sarabun', sans-serif;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+  min-height: 120px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 300px;
+  min-width: 220px;
+}
+
+.copy {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.team {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  flex: 1 1 200px;
+  justify-content: flex-end;
+  min-width: 180px;
+}
+
+.link {
+  color: #fffc;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* รูปภาพใน footer (ถ้ามี) */
+.footer img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===============================
+   Responsive: Tablet & Mobile
+   =============================== */
+
+/* Tablet (iPad) */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .copy {
+    font-size: 0.95rem;
+  }
+
+  .team {
+    font-size: 0.85rem;
+  }
+
+  .link {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .left,
+  .right {
+    flex: unset;
+    min-width: unset;
+    width: 100%;
+    align-items: center;
+  }
+
+  .right {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copy,
+  .team {
+    font-size: 0.9rem;
+  }
+
+  .link {
+    font-size: 0.9rem;
+  }
+}

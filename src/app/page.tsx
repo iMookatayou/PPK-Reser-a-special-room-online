@@ -1,103 +1,109 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import React from 'react'
+import Image from 'next/image'
+import { Building2, Newspaper, Info } from 'lucide-react'
+import FadeInWhenVisible from '@/components/ui/FadeInWhenVisible'
+import styles from './HomePage.module.css'
+import './globals.css'
+
+// ---------- Types ----------
+type Card = {
+  title: string
+  icon: React.ReactNode
+  text: string
+  img: string
+}
+
+export default function HomePage() {
+  const cards: Card[] = [
+    {
+      title: 'ห้องพิเศษ',
+      icon: <Building2 size={28} strokeWidth={1.8} />,
+      text: 'ข้อมูลห้องพัก สิ่งอำนวยความสะดวก และราคา',
+      img: '/images/specialroom-placeholder.jpg'
+    },
+    {
+      title: 'ข่าวสารและกิจกรรม',
+      icon: <Newspaper size={28} strokeWidth={1.8} />,
+      text: 'อัปเดตกิจกรรมและข่าวสารล่าสุดจากโรงพยาบาล',
+      img: '/images/news-placeholder.jpg'
+    },
+    {
+      title: 'ข้อมูลหน่วยงาน',
+      icon: <Info size={28} strokeWidth={1.8} />,
+      text: 'แนะนำข้อมูลเกี่ยวกับโรงพยาบาลและบริการต่าง ๆ',
+      img: '/images/info-placeholder.jpg'
+    }
+  ]
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* MAIN SECTION */}
+      <FadeInWhenVisible
+        as="section"
+        id="main-home"
+        className={styles.mainSection}
+        amount={0.2}
+      >
+        <h2 className={styles.sectionTitle}>บริการของเรา</h2>
+        <p className={styles.sectionDescription}>
+          เลือกบริการที่คุณสนใจจากหมวดหมู่ด้านล่าง เพื่อดูรายละเอียดเพิ่มเติม
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className={styles.cardGrid}>
+          {cards.map((card, i) => (
+            <FadeInWhenVisible key={card.title} delay={i * 0.1}>
+              <div className={styles.card}>
+                <div className={styles.cardImageWrapper}>
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    className={styles.cardImage}
+                  />
+                </div>
+                <h3 className={styles.cardTitle}>
+                  {card.icon}
+                  <span>{card.title}</span>
+                </h3>
+                <p className={styles.cardText}>{card.text}</p>
+              </div>
+            </FadeInWhenVisible>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </FadeInWhenVisible>
+
+      {/* BIG IMAGE SECTION */}
+      <FadeInWhenVisible as="section" className={styles.bigImageSection} amount={0.2}>
+        <h2 className={styles.sectionTitle}>ห้องพักพิเศษของเรา</h2>
+
+        <div className={styles.bigImageGrid}>
+          <FadeInWhenVisible delay={0.2}>
+            <div className={styles.bigImageCard}>
+              <Image
+                src="/images/onebed.png"
+                alt="ห้องพิเศษแบบเตียงเดี่ยว"
+                fill
+                className={styles.bigImage}
+              />
+              <div className={styles.bigImageCaption}>ห้องพิเศษแบบเตียงเดี่ยว</div>
+            </div>
+          </FadeInWhenVisible>
+
+          <FadeInWhenVisible delay={0.4}>
+            <div className={styles.bigImageCard}>
+              <Image
+                src="/images/twobed.png"
+                alt="ห้องพิเศษแบบสองเตียง"
+                fill
+                className={styles.bigImage}
+              />
+              <div className={styles.bigImageCaption}>ห้องพิเศษแบบสองเตียง</div>
+            </div>
+          </FadeInWhenVisible>
+        </div>
+      </FadeInWhenVisible>
+    </>
+  )
 }
