@@ -59,9 +59,6 @@ main {
   }
 }
 
-/* ================================
- Theme สำหรับ Tailwind (ใช้ร่วมกัน)
-=================================== */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -70,9 +67,6 @@ main {
   --font-mono: var(--font-geist-mono);
 }
 
-/* ================================
- สไตล์พื้นฐานทั่วไป
-=================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Sarabun', sans-serif;
   font-weight: 700;
@@ -88,9 +82,6 @@ button {
   cursor: pointer;
 }
 
-/* ================================
- Tailwind Custom Utility Class
-=================================== */
 @layer utilities {
   .font-sarabun {
     font-family: 'Sarabun', ui-sans-serif, system-ui;
