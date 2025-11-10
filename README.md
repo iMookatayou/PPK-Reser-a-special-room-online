@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/PPK.png" width="200" alt="PPK Logo">
+</p>
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
